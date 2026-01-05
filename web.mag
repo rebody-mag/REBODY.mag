@@ -1,0 +1,74 @@
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function RebodyWebsite() {
+  return (
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
+      {/* Hero Section */}
+      <section className="px-6 py-24 max-w-6xl mx-auto grid gap-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl md:text-6xl font-bold leading-tight"
+        >
+          Rebody
+        </motion.h1>
+        <p className="text-xl max-w-2xl">
+          A creative and advocacy platform confronting power, harm, healing, and womanhood — without softening the truth.
+        </p>
+        <div className="flex gap-4">
+          <Button className="rounded-2xl">Read the Work</Button>
+          <Button variant="outline" className="rounded-2xl">About the Editor</Button>
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="px-6 py-20 bg-white">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+          <Card className="rounded-2xl shadow-sm">
+            <CardContent className="p-6 space-y-4">
+              <h2 className="text-2xl font-semibold">What Rebody Is</h2>
+              <p>
+                Rebody is a magazine and media space examining women’s bodies, autonomy, justice, and memory — legally, culturally, and emotionally.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="rounded-2xl shadow-sm">
+            <CardContent className="p-6 space-y-4">
+              <h2 className="text-2xl font-semibold">What We Refuse</h2>
+              <p>
+                Silence. Sanitised feminism. Respectability politics. Power disguised as romance. Harm disguised as culture.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="px-6 py-20 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold mb-10">Focus Areas</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {["Gendered Violence", "Law & Accountability", "Embodiment & Healing"].map(
+            (item) => (
+              <Card key={item} className="rounded-2xl shadow-sm">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg">{item}</h3>
+                </CardContent>
+              </Card>
+            )
+          )}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="px-6 py-12 bg-neutral-100">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-4">
+          <p className="text-sm">© {new Date().getFullYear()} Rebody</p>
+          <p className="text-sm">Words that do not beg for permission.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
